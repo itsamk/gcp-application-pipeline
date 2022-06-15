@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-srv
+  annotations:
+      kubernetes.io/ingress.global-static-ip-name: helloappstaticip
+      networking.gke.io/managed-certificates: hello-app-certificate
+      kubernetes.io/ingress.class: "gce"
+spec:
+  rules:
+  - host: www.myhelloappdomain.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: hello-app-service
+            port: 
+              name: hello-app-port
+
