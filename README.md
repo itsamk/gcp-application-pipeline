@@ -7,6 +7,7 @@ If we look at the landscape of cloud, one thing it has undoubtedly revolutionize
 ```
 ![Deployment Diagram](https://github.com/itsamk/gcp-application-pipeline/blob/main/assets/gcp-cd.png?raw=true)
 ```
+![Deployment Dia](https://github.com/itsamk/gcp-application-pipeline/blob/main/assets/gcp-cd.png)
 The above diagram represents various cloud components that are used in this pipeline. Here are the links to those for more information –
 
 Kubernetes - https://cloud.google.com/kubernetes-engine
