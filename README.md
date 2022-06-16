@@ -47,14 +47,36 @@ Follow the guidelines in this document to setup the GKE Cluster (DO NOT deploy t
 ## Deploying the application
 
 - Clone this repo by running the following command
-`https://github.com/itsamk/gcp-application-pipeline.git`
+`git clone https://github.com/itsamk/gcp-application-pipeline.git`
 
 - Reserving static-ip: A static-ip is needed to deploy the application securely with a SSL-certificate. Run the following command to provision a static-ip in the project.
 
-`gcloud compute addresses create ADDRESS_NAME --global`
+        `gcloud compute addresses create ADDRESS_NAME --global`
 
 - Point DNS to static-ip (OPTIONAL): In this step, add the following entry in your DNS record for your custom domain -
-
-| Type | Name | Data | TTL |
-|--|--|--|-- |
+        | Type | Name | Data | TTL |
+|--|--|--|--|
 | A | www | IP_ADDRESS | 600 seconds |
+
+- Run the following command to the kubernetes 'deployment' for the application:
+        `kubectl apply -f k8s/hello-app-depl.yaml`
+- Run the following command to provision a managed certificate from Google:
+        `kubectl apply -f k8s/managed-cert.yaml`
+- Run the following command to deploy the ingress for the application:
+        `kubectl apply -f k8s/ingress-srv.yaml`
+
+## Setting up the build pipeline
+
+### Step 1: Enable Artifact Registry API 
+    Navigate to Artifact Registry in [Cloud Console](https://console.cloud.google.com) and Enable the Artifact Registry API. 
+### Step 2: Create the Repository to store images
+    Use the Cloud Consolte GUI to add a new repository with the name us.gcr.io (or gcr.io). Use defaults for rest of the fields and create the repository.
+### Step 3: Create Github repo.
+    Create a Github repository. (Or fork this one for the test.)
+### Step 4: Enable Cloud Build API
+    Navigate to Cloud Build in [Cloud Console](https://console.cloud.google.com) and Enable the Cloud Build API. 
+### Step 5: Create Build Trigger
+    Create build trigger with the following settings -
+
+
+You are done! Now any new changes you push to your main branch on Github will trigger the build and deploy your application to the Kubernetes cluster in a secure way with no downtime.
