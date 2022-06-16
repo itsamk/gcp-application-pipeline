@@ -64,6 +64,7 @@ Follow the guidelines in this document to setup the GKE Cluster (DO NOT deploy t
         `kubectl apply -f k8s/managed-cert.yaml`
 - Run the following command to deploy the ingress for the application:
         `kubectl apply -f k8s/ingress-srv.yaml`
+    This will also deploy the Load Balancer component in Google that will be ingress for all your traffic.
 
 ## Setting up the build pipeline
 
