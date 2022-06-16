@@ -43,3 +43,19 @@ Static IP - https://cloud.google.com/compute/docs/ip-addresses/reserve-static-ex
 ## Setting up the Kubernetes Cluster
 
 Follow the guidelines in this document to setup the GKE Cluster (DO NOT deploy the application yet) - [https://cloud.google.com/kubernetes-engine/docs/deploy-app-cluster](https://cloud.google.com/kubernetes-engine/docs/deploy-app-cluster)
+
+## Deploying the application
+
+- Clone this repo by running the following command
+`https://github.com/itsamk/gcp-application-pipeline.git`
+
+- Reserving static-ip: A static-ip is needed to deploy the application securely with a SSL-certificate. Run the following command to provision a static-ip in the project.
+
+`gcloud compute addresses create ADDRESS_NAME --global`
+
+- Point DNS to static-ip (OPTIONAL): In this step, add the following entry in your DNS record for your custom domain -
+| Type | Name | Data | TTL |
+|--|--|--|-- |
+| A | www | IP_ADDRESS | 600 seconds |
+
+
