@@ -21,3 +21,25 @@ Cloud Build - https://cloud.google.com/build/docs
 Artifacts Registry - [https://cloud.google.com/artifact-registry](https://cloud.google.com/artifact-registry)
 
 Static IP - https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address
+
+## Prerequisites
+
+- Google Cloud Subscription
+- Basic knowledge of web client-server architecture
+- Basic knowledge of Kubernetes
+- Github account
+
+## Environment Setup
+ - Install gcloud - [https://cloud.google.com/sdk/docs/install](https://cloud.google.com/sdk/docs/install)
+
+- Install kubectl - [https://kubernetes.io/docs/tasks/tools/](https://kubernetes.io/docs/tasks/tools/)
+
+- Create a GCP Project using the GUI or gcloud command line
+
+- Enable billing for the project -[https://console.cloud.google.com/billing/projects](https://console.cloud.google.com/billing/projects)
+
+- enable container.googleapis.com service by running the following command -     `gcloud services enable container.googleapis.com`
+
+## Setting up the Kubernetes Cluster
+
+Follow the guidelines in this document to setup the GKE Cluster (DO NOT deploy the application yet) - [https://cloud.google.com/kubernetes-engine/docs/deploy-app-cluster](https://cloud.google.com/kubernetes-engine/docs/deploy-app-cluster)
