@@ -54,7 +54,6 @@ Follow the guidelines in this document to setup the GKE Cluster (DO NOT deploy t
         `gcloud compute addresses create ADDRESS_NAME --global`
 
 - Point DNS to static-ip (OPTIONAL): In this step, add the following entry in your DNS record for your custom domain -
-
 | Type | Name | Data | TTL |
 |--|--|--|--|
 | A | www | IP_ADDRESS | 600 seconds |
